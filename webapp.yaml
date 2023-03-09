@@ -19,6 +19,22 @@ spec:
         image: nanajanashia/k8s-demo-app:v1.0
         ports:
         - containerPort: 3000
+        env:
+        - name: USER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: mong-secret
+              key: mongo-user
+        - name: USER_PWD
+          valueFrom:
+            secretKeyRef:
+              name: mong-secret
+              key: mongo-password
+        - name: DB_URL
+          valueFrom:
+            configMapKeyRef:
+              name: mong-config
+              key: mongo-url
 ---
 apiVersion: v1
 kind: Service
