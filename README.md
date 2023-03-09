@@ -1,2 +1,2 @@
 # kubernetes-demo
-Setup K8 cluster locally
+K8 cluster setup
